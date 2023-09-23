@@ -2,17 +2,15 @@
 
 import { MdLocationOn } from 'react-icons/md';
 import { AiOutlineDollar } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 const Job = ({job}) => {
-    const {logo,company_name ,job_title,remote_or_onsite,location, job_type , salary, job_description,job_responsibility,educational_requirements,experiences, contact_information,phone, email, address } = job;
+    const {id,logo,company_name ,job_title,remote_or_onsite,location, job_type , salary, job_description,job_responsibility,educational_requirements,experiences, contact_information,phone, email, address } = job;
     return (
         <div>
             <div className="card  bg-base-100 shadow-xl">
   <figure><img src={logo} alt="Shoes" /></figure>
   <div className="card-body">
-    <h2 className="card-title">
-    {job_title}
-    </h2>
     <h2 className="card-title">
     {company_name}
     </h2>  
@@ -24,7 +22,10 @@ const Job = ({job}) => {
     <p className="flex"><MdLocationOn className='text-2xl mr-2'></MdLocationOn> {location}</p>
     <p className="flex"><AiOutlineDollar className='text-2xl mr-2'></AiOutlineDollar> {salary}</p>
     </div>
-    <button className="btn w-40  bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...">View Details</button>
+    <Link to={`/job/${id}`}>
+      <button className="btn w-40  bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...">
+      View Details</button>
+      </Link>
   </div>
 </div>
         </div>
